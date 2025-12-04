@@ -138,7 +138,7 @@ export default defineConfig({
 ```
 - Make changes in your view to use the ```@viteReactRefresh``` directive and reference the .jsx file.
 
-```
+```html
     <!-- <link href="{{asset('css/style.css')}}" type="text/css" rel="stylesheet" /> -->
     @viteReactRefresh
     @vite(['resources/css/app.css','resources/js/app.jsx'])
