@@ -1,4 +1,4 @@
-# Integrating Tailwind, JavaScript React into a Laravel app
+# Integrating Tailwind, JavaScript and React into a Laravel app
 
 When exploring the use of Tailwind, JavaScript and React we considered these technologies separately from Laravel. The following describes how to integrate a front-end build process using Vite into a Laravel application. As always the Laravel documentation https://laravel.com/docs/12.x/vite provides complete information. However, there are some differences to be aware of when using Codespaces, and these are described below.
 
