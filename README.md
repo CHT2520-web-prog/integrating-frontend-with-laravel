@@ -1,6 +1,6 @@
 # Integrating Tailwind, JavaScript React into a Laravel app
 
-When exploring the use of Tailwind, JavaScript and React we considered these technologies separately from Laravel. The following describes how to integrate a front-end build process using Vite into a Laravel application. As always the Laravel documentation https://laravel.com/docs/12.x/vite provides complete information. However, there are some differences when using Codespaces.
+When exploring the use of Tailwind, JavaScript and React we considered these technologies separately from Laravel. The following describes how to integrate a front-end build process using Vite into a Laravel application. As always the Laravel documentation https://laravel.com/docs/12.x/vite provides complete information. However, there are some differences to be aware of when using Codespaces, and these are described below.
 
 ## Integrating Tailwind
 Default Laravel applications already have a _package.json_ file that specifies key Node packages that are needed. This includes the Vite package and the a Laravel plug-in that configures Vite to work alongside the Laravel server.
@@ -9,7 +9,7 @@ Default Laravel applications already have a _package.json_ file that specifies k
 ```
 npm install
 ```
-- The packages should be installed and you'll get a *node_modules* folder. It should also generate a vite.config.js file.
+- The packages should be installed and you'll get a *node_modules* folder. It should also generate a _vite.config.js_ file.
 
 If you are using Codespaces you will need to make some changes to this file to add a _server_ option so that it looks like the following (make sure you swap in the name of your Codespace). If you are using XAMPP it should work without having to make any changes.
 
@@ -38,7 +38,7 @@ export default defineConfig({
 
 });
 ```
-- Instead of using a CSS file in our _public_ directory. The CSS will be built using _app.css_ in the _resources/css_ directory. If you open this file, you should see that it already imports Tailwind.
+- Instead of using a CSS file in our _public_ directory. The CSS will be built using _app.css_ in the _resources/css_ directory. If you open this file, you should see that it already imports Tailwind. We don't need to make any changes to this.
 - The last thing we need to do is load the Tailwind generated CSS using Vite. In your layout file, comment out the link to the CSS in your _public_ folder and use the ```@vite``` blade directive to load the Tailwind CSS:
 
 ```html
@@ -50,7 +50,7 @@ export default defineConfig({
 ```
 npm run dev
 ```
-This should start the Vite server and watch for changes to your files. If you are using Codespaces you will need to make port 5173 public (select the PORTS tab in the terminal)To run the Laravel app and view these changes you will need to open a new terminal/shell and enter the usual ```php artisan serve```. If you view your web application in a browser you should find the Tailwind styling has been applied. 
+This should start the Vite server and watch for changes to your files. If you are using Codespaces you will need to make port 5173 public (select the PORTS tab in the terminal). To run the Laravel app and view these changes you will need to open a new terminal/shell and enter the usual ```php artisan serve```. If you view your web application in a browser you should find the Tailwind styling has been applied. 
 
 Now, if you add some Tailwind classes in your view e.g. 
 
@@ -61,8 +61,8 @@ The changes should be reflected in the browser.
 
 ## Adding JavaScript
 This is fairly straightforward. Again the JavaScript will be served from the _resources_ folder where there should already be an _app.js_ in this folder. 
-- Add the following line of code in _app.js_ to check we can also run JavaScript. 
 
+- Add the following line of code in _app.js_ to check we can also use JavaScript. 
 ```javascript
 alert("Added some JavaScript");
 ```
@@ -145,7 +145,7 @@ export default defineConfig({
 </head>
 ```
 - Test in a browser, you should find that you have successfully inserted a React component into the page.
-- Finally to check everything is working, add a Tailwind class into the React component e.g.
+- Finally, to check everything is working, add a Tailwind class into the React component e.g.
 
 ```javascript
 function ReactButton() {
@@ -155,6 +155,4 @@ function ReactButton() {
 }
 ```
 - Refresh in a browser to confirm this works. 
-
-    @vite(['resources/css/app.css','resources/js/app.jsx'])
 ```
