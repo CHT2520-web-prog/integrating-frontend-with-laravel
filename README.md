@@ -29,7 +29,7 @@ export default defineConfig({
     server: {
         cors:true,
         hmr: {
-            host: "name-of-codespace-5173.github.dev",
+            host: "name-of-codespace-5173.app.github.dev",
             clientPort: 443,
             protocol:'wss',
         },
